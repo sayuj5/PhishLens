@@ -220,7 +220,7 @@ export default function ReportPage() {
           </div>
 
           <div className="glass-panel p-10 h-full relative hover:-translate-y-1 transition-transform duration-300">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
+            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-accent/20 to-transparent"></div>
             <h2 className="text-xs font-bold tracking-[0.2em] text-accent uppercase mb-8 flex items-center gap-3">
               <Shield className="w-4 h-4" /> Triggered Sensors & Explainability
             </h2>
@@ -233,7 +233,7 @@ export default function ReportPage() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 + idx * 0.1 }}
                     key={finding.id}
-                    className="bg-white/[0.02] border border-white/5 p-6 rounded flex items-start gap-5 hover:bg-white/4 transition-colors group"
+                    className="bg-white/2 border border-white/5 p-6 rounded flex items-start gap-5 hover:bg-white/4 transition-colors group"
                   >
                     <div
                       className={`mt-1 rounded-sm p-1.5 ${finding.severity === "critical" ? "bg-danger/20 text-danger" : finding.severity === "high" ? "bg-danger/20 text-danger" : "bg-warning/20 text-warning"}`}
