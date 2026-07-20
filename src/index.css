@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0f0e0e;
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-surfaceHover: rgba(255, 255, 255, 0.07);
+  --color-accent: #e67336;
+  --color-glow: #c58b7c;
+  --color-textPrimary: #f1ede9;
+  --color-textSecondary: #a5a3a1;
+  --color-danger: #ef4444;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Outfit", system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-textPrimary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background-color: var(--color-surface);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .glass-nav {
+    background-color: rgba(15, 14, 14, 0.5);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 24px rgba(230, 115, 54, 0.4);
+  }
+}
