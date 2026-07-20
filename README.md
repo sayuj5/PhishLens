@@ -6,7 +6,7 @@
 
 > ## 🎓 Academic Project Notice
 >
-> **PhishLens** was developed as part of the **Bachelor of Computer Applications (BCA/BCT) Training Program** under **JIS University**.
+> **PhishLens** was developed as part of the **Bachelor of Technology in Computer Science & Engineering (B.Tech CSE) Beyond Curriculum Training** under **JIS University**.
 >
 > Developed by **Sayuj Sur**.
 >
@@ -220,7 +220,7 @@ uvicorn app.main:app --reload
 
 **Sayuj Sur**
 
-Developed as part of the **JIS University BCA/BCT Training Program**.
+Developed as part of the **JIS University B.Tech CSE Beyond Curriculum Training**.
 
 If you found this project useful, consider giving the repository a ⭐ on GitHub.
 
