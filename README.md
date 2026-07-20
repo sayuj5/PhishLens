@@ -29,6 +29,16 @@
   <img src="https://img.shields.io/github/last-commit/sayuj5/PhishLens-" alt="Last Commit" />
 </p>
 
+## 🚀 Live Deployments
+
+| Service | URL |
+|---|---|
+| 🌐 **Live Demo (Frontend)** | [phish-lens-flame.vercel.app](https://phish-lens-flame.vercel.app) |
+| ⚙️ **API Docs (Backend)** | [phishlens-api.onrender.com/docs](https://phishlens-api.onrender.com/docs) |
+| 📡 **API Endpoint** | `POST https://phishlens-api.onrender.com/api/v1/analyze` |
+
+---
+
 ## Project Overview
 
 **PhishLens** is a completely stateless, privacy-first cybersecurity platform that analyzes URLs using a proprietary explainable heuristic engine.
