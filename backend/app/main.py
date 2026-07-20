@@ -3,7 +3,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from app.engine.heuristics import analyze_url
 
-app = FastAPI(title="PhishLens API", description="Explainable Heuristic Phishing URL Analyzer API", version="1.0.0")
+app = FastAPI(
+    title="PhishLens API",
+    description="Explainable Heuristic Phishing URL Analyzer API",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json",
+)
 
 app.add_middleware(
     CORSMiddleware,
