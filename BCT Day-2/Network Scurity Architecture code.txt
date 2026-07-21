@@ -1,0 +1,62 @@
+@startuml
+' --- Configuration & Layout ---
+top to bottom direction
+skinparam linetype ortho
+skinparam shadowing false
+skinparam roundcorner 5
+
+' --- Custom Colors ---
+!define COLOR_FIREWALL #C0504D
+!define COLOR_MAINFRAME #5F2E60
+
+' --- Architectural Layers ---
+
+package "INTERNET" #White {
+    [Remote Office] as office
+    [Mobile Devices] as mobile
+}
+
+package "DMZ" #White {
+    [Firewall 1] as fw1 #COLOR_FIREWALL
+    [VPN Gateway] as vpn
+    [Load Balancer] as lb
+    
+    ' Fix internal layout hierarchy
+    fw1 -[hidden]down-> vpn
+    fw1 -[hidden]down-> lb
+}
+
+package "TRUSTED" #White {
+    [Firewall 2] as fw2 #COLOR_FIREWALL
+    [Internal Services] as internal
+    [Application Services] as app
+    
+    ' Fix internal layout hierarchy
+    fw2 -[hidden]down-> app
+}
+
+package "PRIVILEGED" #White {
+    [Mainframe] as mainframe #COLOR_MAINFRAME
+}
+
+' --- Connections (Top to Bottom Flow) ---
+
+' Internet to DMZ
+office --> fw1
+mobile --> fw1
+
+' DMZ Routing
+fw1 --> vpn
+fw1 --> lb
+
+' Cross-Connections from DMZ to Trusted
+vpn --> internal
+lb --> fw2
+
+' Trusted Internal Routing
+fw2 --> app
+
+' Trusted to Privileged Boundary
+app --> mainframe
+
+@enduml
