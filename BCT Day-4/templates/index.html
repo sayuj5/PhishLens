@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyber Learning Demo - Home</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; background-color: #f4f4f9; }
+        .container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: inline-block; }
+        h1 { color: #333; }
+        a { text-decoration: none; background: #007bff; color: white; padding: 10px 20px; border-radius: 5px; }
+        a:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Cybersecurity Learning Demo</h1>
+        <p>This application demonstrates brute-force vulnerabilities and defensive countermeasures.</p>
+        <br><br>
+        <a href="{{ url_for('login') }}">Go to Login Page</a>
+    </div>
+</body>
+</html>

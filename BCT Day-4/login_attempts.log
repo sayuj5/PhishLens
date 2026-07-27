@@ -1,0 +1,6 @@
+2026-07-27 21:14:21,935 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-27 21:14:21,935 - INFO - [33mPress CTRL+C to quit[0m
+2026-07-27 21:14:21,954 - INFO -  * Restarting with watchdog (windowsapi)
+2026-07-27 21:14:22,254 - WARNING -  * Debugger is active!
+2026-07-27 21:14:22,257 - INFO -  * Debugger PIN: 544-701-257
