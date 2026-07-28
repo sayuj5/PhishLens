@@ -17,7 +17,7 @@ def parse_packet(packet: Packet) -> dict:
         "payload_size": 0,
         "mac_src": None,
         "mac_dst": None,
-        "raw_payload": b""
+        "raw_payload": ""
     }
 
     if packet.haslayer('Ether'):
@@ -34,7 +34,7 @@ def parse_packet(packet: Packet) -> dict:
             parsed["src_port"] = packet[TCP].sport
             parsed["dst_port"] = packet[TCP].dport
             parsed["flags"] = packet[TCP].flags
-            parsed["raw_payload"] = bytes(packet[TCP].payload)
+            parsed["raw_payload"] = bytes(packet[TCP].payload).hex()
             parsed["payload_size"] = len(parsed["raw_payload"])
             
             # Simple HTTP/SSH check based on port and payload
@@ -49,7 +49,7 @@ def parse_packet(packet: Packet) -> dict:
             parsed["protocol"] = "UDP"
             parsed["src_port"] = packet[UDP].sport
             parsed["dst_port"] = packet[UDP].dport
-            parsed["raw_payload"] = bytes(packet[UDP].payload)
+            parsed["raw_payload"] = bytes(packet[UDP].payload).hex()
             parsed["payload_size"] = len(parsed["raw_payload"])
             
             if packet.haslayer(DNS):
@@ -57,7 +57,7 @@ def parse_packet(packet: Packet) -> dict:
                 
         elif packet.haslayer(ICMP):
             parsed["protocol"] = "ICMP"
-            parsed["raw_payload"] = bytes(packet[ICMP].payload)
+            parsed["raw_payload"] = bytes(packet[ICMP].payload).hex()
             parsed["payload_size"] = len(parsed["raw_payload"])
             
     elif packet.haslayer(ARP):
