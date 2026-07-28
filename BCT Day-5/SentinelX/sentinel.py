@@ -1,5 +1,4 @@
 import typer
-from typing_extensions import Annotated
 from queue import Queue
 from core.sniffer import Sniffer
 from core.engine import DetectionEngine
@@ -9,7 +8,7 @@ from terminal.dashboard import Dashboard
 app = typer.Typer(help="SentinelX - Lightweight Terminal-Based NIDS")
 
 @app.command()
-def start(interface: Annotated[str, typer.Option("--iface", "-i", help="Network interface to sniff on (e.g., eth0, wlan0)")] = "eth0"):
+def start(interface: str = typer.Option("eth0", help="Network interface to sniff on (e.g., eth0, wlan0)")):
     """Start SentinelX live packet capture and detection."""
     typer.secho(f"Starting SentinelX on interface {interface}...", fg=typer.colors.GREEN, bold=True)
     
