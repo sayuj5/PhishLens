@@ -11,10 +11,11 @@ This guide is designed to serve as a rigorous reference for cybersecurity vivas,
 3. [Threat Intelligence & Vulnerability Management](#3-threat-intelligence--vulnerability-management)
 4. [Digital Forensics & Incident Response (DFIR)](#4-digital-forensics--incident-response-dfir)
 5. [Security Operations Center (SOC)](#5-security-operations-center-soc)
-6. [Network Security & Intrusion Detection](#6-network-security--intrusion-detection)
-7. [Adversarial Tactics: Malware & Social Engineering](#7-adversarial-tactics-malware--social-engineering)
-8. [Web Application Security (OWASP)](#8-web-application-security-owasp)
-9. [Ethical Hacking Methodology](#9-ethical-hacking-methodology)
+6. [SIEM & EDR Technologies](#6-siem--edr-technologies)
+7. [Network Security & Intrusion Detection](#7-network-security--intrusion-detection)
+8. [Adversarial Tactics: Malware & Social Engineering](#8-adversarial-tactics-malware--social-engineering)
+9. [Web Application Security (OWASP)](#9-web-application-security-owasp)
+10. [Ethical Hacking Methodology](#10-ethical-hacking-methodology)
 
 ---
 
@@ -79,17 +80,29 @@ This guide is designed to serve as a rigorous reference for cybersecurity vivas,
 
 ## 5. Security Operations Center (SOC)
 
-### Q: Describe the function of a SOC and the primary technologies utilized within it.
-**A:** A Security Operations Center (SOC) is a centralized unit that continuously monitors, detects, analyzes, and responds to cybersecurity incidents. It acts as the central command post for an organization's network telemetry.
-
-**Core SOC Technologies:**
-- **SIEM (Security Information and Event Management):** Aggregates and correlates logs from disparate sources (firewalls, servers, endpoints) to detect anomalies. *Examples: Splunk, IBM QRadar, ELK Stack.*
-- **EDR/XDR (Endpoint Detection and Response):** Provides granular visibility into endpoint activity (process executions, registry changes) and allows for remote remediation. *Examples: CrowdStrike, SentinelOne.*
-- **SOAR (Security Orchestration, Automation, and Response):** Automates routine security tasks and playbook execution to reduce alert fatigue for SOC analysts.
+### Q: Describe the function of a SOC.
+**A:** A Security Operations Center (SOC) is a centralized unit that continuously monitors, detects, analyzes, and responds to cybersecurity incidents. It acts as the central command post for an organization's network telemetry, uniting people, processes, and technology to defend against threats 24/7.
 
 ---
 
-## 6. Network Security & Intrusion Detection
+## 6. SIEM & EDR Technologies
+
+### Q: What is a SIEM, and how does it function?
+**A:** **SIEM (Security Information and Event Management)** is a technology solution that aggregates, normalizes, and analyzes log data from across an organization's entire IT infrastructure (firewalls, servers, routers, endpoints).
+- **Core Functions:** 
+  1. **Log Collection & Aggregation:** Centralizing logs into one dashboard.
+  2. **Correlation:** Using rules and AI to connect seemingly unrelated events. For example, if a user fails login 10 times in London, and then successfully logs in from Russia 5 minutes later, the SIEM flags it as an "Impossible Travel" anomaly.
+  3. **Alerting:** Triggering high-priority alerts for SOC analysts.
+- *Examples:* Splunk, IBM QRadar, Microsoft Sentinel.
+
+### Q: What is EDR, and how does it differ from traditional Antivirus?
+**A:** **EDR (Endpoint Detection and Response)** is an advanced endpoint security solution that continuously records system behaviors and events (like process executions, registry changes, and memory injections) on endpoints (laptops, servers).
+- **Difference from Antivirus:** Traditional AV relies primarily on *signature-based detection* (matching known bad files). EDR relies on *behavioral analysis*. EDR can detect fileless malware or zero-day threats by observing malicious behaviors, even if the file itself has never been seen before. It also allows analysts to remotely isolate the compromised endpoint.
+- *Examples:* CrowdStrike Falcon, SentinelOne, Microsoft Defender for Endpoint.
+
+---
+
+## 7. Network Security & Intrusion Detection
 
 ### Q: What is an Intrusion Detection System (IDS), and how does it differ by type and detection methodology?
 **A:** An IDS is a passive monitoring system designed to detect malicious activities and policy violations, generating alerts for SOC analysts. (Note: An IPS—Intrusion Prevention System—actively drops malicious traffic).
@@ -110,7 +123,7 @@ This guide is designed to serve as a rigorous reference for cybersecurity vivas,
 
 ---
 
-## 7. Adversarial Tactics: Malware & Social Engineering
+## 8. Adversarial Tactics: Malware & Social Engineering
 
 ### Q: What is Social Engineering, and what are its primary vectors?
 **A:** Social Engineering bypasses technical controls by manipulating human psychology to extract confidential information or bypass security protocols.
@@ -129,7 +142,7 @@ This guide is designed to serve as a rigorous reference for cybersecurity vivas,
 
 ---
 
-## 8. Web Application Security (OWASP)
+## 9. Web Application Security (OWASP)
 
 ### Q: What is the OWASP Top 10, and can you detail a few critical web vulnerabilities?
 **A:** The Open Worldwide Application Security Project (OWASP) Top 10 is a globally recognized awareness document highlighting the most critical web application vulnerabilities.
@@ -141,7 +154,7 @@ This guide is designed to serve as a rigorous reference for cybersecurity vivas,
 
 ---
 
-## 9. Ethical Hacking Methodology
+## 10. Ethical Hacking Methodology
 
 ### Q: Detail the phases of the Ethical Hacking (Penetration Testing) lifecycle.
 **A:** Penetration testing is the authorized, simulated cyberattack against a system to evaluate its security.
