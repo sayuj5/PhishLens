@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: blackfalcon-config
+data:
+  FRONTEND_URL: "http://blackfalcon.local"
+  NEXT_PUBLIC_API_URL: "http://api.blackfalcon.local"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: blackfalcon-secrets
+type: Opaque
+stringData:
+  DATABASE_URL: "postgresql://user:password@db-host:5432/blackfalcon"
+  SECRET_KEY: "replace-with-a-very-strong-production-secret"

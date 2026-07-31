@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blackfalcon-backend
+  labels:
+    app: blackfalcon
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: blackfalcon
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: blackfalcon
+        tier: backend
+    spec:
+      containers:
+      - name: backend
+        image: blackfalcon/backend:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - configMapRef:
+            name: blackfalcon-config
+        - secretRef:
+            name: blackfalcon-secrets
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blackfalcon-backend-svc
+spec:
+  selector:
+    app: blackfalcon
+    tier: backend
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
